@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 60% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 60% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 60% 10%;
+    --primary: 152 100% 33%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 100% 20%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 152 30% 96%;
+    --muted-foreground: 220 20% 40%;
+    --accent: 152 50% 96%;
+    --accent-foreground: 152 100% 33%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 152 100% 33%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 220 60% 10%;
+    --foreground: 0 0% 100%;
+    --card: 220 60% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 220 60% 10%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 152 100% 33%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 100% 20%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 152 30% 20%;
+    --muted-foreground: 152 20% 80%;
+    --accent: 152 50% 20%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 40% 20%;
+    --input: 220 40% 20%;
+    --ring: 152 100% 33%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer components {
+  .lighting-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .lighting-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 168, 89, 0.1),
+      transparent
+    );
+    transition: 0.5s;
+    animation: lighting-effect 3s infinite;
+  }
+
+  @keyframes lighting-effect {
+    0% {
+      left: -100%;
+    }
+    50% {
+      left: 100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+}
